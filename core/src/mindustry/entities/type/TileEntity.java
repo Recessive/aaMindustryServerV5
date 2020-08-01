@@ -47,6 +47,8 @@ public class TileEntity extends BaseEntity implements TargetTrait, HealthTrait{
     private float sleepTime;
     private @Nullable SoundLoop sound;
 
+    public Team lastHit = null;
+
     @Remote(called = Loc.server, unreliable = true)
     public static void onTileDamage(Tile tile, float health){
         if(tile.entity != null){
