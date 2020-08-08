@@ -102,6 +102,7 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
 
     @Override
     public void onRespawn(Tile tile){
+
         velocity.setZero();
         boostHeat = 1f;
         achievedFlight = true;
@@ -115,6 +116,8 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
         setNet(tile.drawx(), tile.drawy());
         clearItem();
         heal();
+
+        Events.fire(new PlayerSpawnEvent(this));
     }
 
     @Override
@@ -953,4 +956,12 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
     }
 
     //endregion
+
+    public static class PlayerSpawnEvent{
+        public final Player player;
+
+        public PlayerSpawnEvent(Player player){
+            this.player = player;
+        }
+    }
 }
