@@ -344,6 +344,15 @@ public class EventType{
         }
     }
 
+    /** Called after a player spawns.*/
+    public static class PlayerSpawn{
+        public final Player player;
+
+        public PlayerSpawn(Player player){
+            this.player = player;
+        }
+    }
+
     /** Called when a player connects, but has not joined the game yet.*/
     public static class PlayerConnect{
         public final Player player;

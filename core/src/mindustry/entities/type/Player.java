@@ -117,7 +117,9 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
         clearItem();
         heal();
 
-        Events.fire(new PlayerSpawnEvent(this));
+        System.out.println("Player spawned");
+
+        Events.fire(new EventType.PlayerSpawn(this));
     }
 
     @Override
@@ -956,12 +958,4 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
     }
 
     //endregion
-
-    public static class PlayerSpawnEvent{
-        public final Player player;
-
-        public PlayerSpawnEvent(Player player){
-            this.player = player;
-        }
-    }
 }
