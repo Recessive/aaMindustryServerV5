@@ -415,6 +415,15 @@ public class EventType{
             this.amount = amount;
         }
     }
+
+
+    public static class CustomEvent{
+        public final Object value;
+
+        public CustomEvent(Object value) {
+            this.value = value;
+        }
+    }
     
 }
 
