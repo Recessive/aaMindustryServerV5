@@ -117,8 +117,6 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
         clearItem();
         heal();
 
-        System.out.println("Player spawned");
-
         Events.fire(new EventType.PlayerSpawn(this));
     }
 
