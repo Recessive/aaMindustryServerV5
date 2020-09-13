@@ -417,6 +417,14 @@ public class EventType{
             this.amount = amount;
         }
     }
+    /* Manual call after initial player join has been handled */
+    public static class PlayerJoinSecondary{
+        public final Player player;
+
+        public PlayerJoinSecondary(Player player){
+            this.player = player;
+        }
+    }
 
 
     public static class CustomEvent{

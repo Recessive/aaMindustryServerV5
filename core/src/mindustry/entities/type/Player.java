@@ -57,6 +57,9 @@ public class Player extends Unit implements BuilderMinerTrait, ShooterTrait{
     public SpawnerTrait spawner, lastSpawner;
     public int respawns;
 
+    public int playTime;
+    public int donateLevel;
+
     public @Nullable NetConnection con;
     public boolean isLocal = false;
     public Interval timer = new Interval(6);
