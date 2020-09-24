@@ -352,7 +352,9 @@ public class NetServer implements ApplicationListener{
         VoteSession[] currentlyKicking = {null};
 
         clientCommands.<Player>register("votekick", "[player...]", "Vote to kick a player, with a cooldown.", (args, player) -> {
-            if(!Config.enableVotekick.bool()){
+            player.sendMessage("[accent]Use [scarlet]/banid [accent]instead");
+
+            /*if(!Config.enableVotekick.bool()){
                 player.sendMessage("[scarlet]Vote-kick is disabled on this server.");
                 return;
             }
@@ -406,10 +408,10 @@ public class NetServer implements ApplicationListener{
                 }else{
                     player.sendMessage("[scarlet]No player[orange]'" + args[0] + "'[scarlet] found.");
                 }
-            }
+            }*/
         });
 
-        clientCommands.<Player>register("vote", "<y/n>", "Vote to kick the current player.", (arg, player) -> {
+        /*clientCommands.<Player>register("vote", "<y/n>", "Vote to kick the current player.", (arg, player) -> {
             if(currentlyKicking[0] == null){
                 player.sendMessage("[scarlet]Nobody is being voted on.");
             }else{
@@ -437,7 +439,7 @@ public class NetServer implements ApplicationListener{
                 int sign = arg[0].toLowerCase().equals("y") ? 1 : -1;
                 currentlyKicking[0].vote(player, sign);
             }
-        });
+        });*/
 
 
         clientCommands.<Player>register("sync", "Re-synchronize world state.", (args, player) -> {
