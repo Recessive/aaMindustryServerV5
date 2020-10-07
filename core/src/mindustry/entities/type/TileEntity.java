@@ -48,6 +48,7 @@ public class TileEntity extends BaseEntity implements TargetTrait, HealthTrait{
     private @Nullable SoundLoop sound;
 
     public Team lastHit = null;
+    public boolean indestructible = false;
 
     @Remote(called = Loc.server, unreliable = true)
     public static void onTileDamage(Tile tile, float health){
@@ -170,7 +171,7 @@ public class TileEntity extends BaseEntity implements TargetTrait, HealthTrait{
 
     @Override
     public void damage(float damage){
-        if(dead) return;
+        if(dead || indestructible) return;
 
         if(Mathf.zero(state.rules.blockHealthMultiplier)){
             damage = health + 1;
